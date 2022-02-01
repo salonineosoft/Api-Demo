@@ -8,13 +8,18 @@
           <div class="col-sm-6">
             <div class="contactinfo">
               <ul class="nav nav-pills">
-               <li>
-                    <a href="#"><i class="fa fa-email">{{conf[0].notification_email}}</i></a>
-                  </li>
                 <li>
-                   <a href="#"><i class="fa fa-phone"></i>{{conf[0].mobile_number}} </a> 
+                  <a href="#"
+                    ><i class="fa fa-email">{{
+                      conf[0].notification_email
+                    }}</i></a
+                  >
                 </li>
-                
+                <li>
+                  <a href="#"
+                    ><i class="fa fa-phone"></i>{{ conf[0].mobile_number }}
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -88,10 +93,10 @@
             <div class="shop-menu pull-right">
               <ul class="nav navbar-nav">
                 <li>
-                  <router-link to="/wishlist"  v-if="msg" >Wishlist </router-link>
+                  <router-link to="/wishlist" v-if="msg">Wishlist </router-link>
                 </li>
                 <li>
-                  <router-link to="/cart"   v-if="msg"
+                  <router-link to="/cart" v-if="msg"
                     ><i class="fa fa-shopping-cart"></i> Cart({{
                       numInCart.length
                     }})</router-link
@@ -99,7 +104,7 @@
                 </li>
 
                 <li>
-                  <router-link to="/checkout"  v-if="msg"
+                  <router-link to="/checkout" v-if="msg"
                     ><i class="fa fa-crosshairs"></i> Checkout</router-link
                   >
                 </li>
@@ -110,13 +115,9 @@
                   </router-link>
                 </li>
                 <li>
-                  <!-- <button @click="logout()" v-if="msg">Logout</button> -->
-                  <router-link
-                        to="/login"
-                        @click.native="logout()"
-                        v-if="msg"
-                        >Logout
-                      </router-link>
+                  <router-link to="/login" @click.native="logout()" v-if="msg"
+                    >Logout
+                  </router-link>
                   <router-link to="/login" v-if="!msg">Login </router-link>
                 </li>
               </ul>
@@ -149,15 +150,17 @@
               <ul class="nav navbar-nav collapse navbar-collapse">
                 <li><router-link to="/" class="active">Home</router-link></li>
                 <li class="dropdown">
-                  <a href="#" v-if="msg" >Shop<i class="fa fa-angle-down"></i></a>
+                  <a href="#" v-if="msg"
+                    >Shop<i class="fa fa-angle-down"></i
+                  ></a>
                   <ul role="menu" class="sub-menu">
                     <li>
-                      <router-link to="/checkout" 
+                      <router-link to="/checkout"
                         ><i class="fa fa-crosshairs"></i> Checkout</router-link
                       >
                     </li>
                     <li>
-                      <router-link to="/cart" 
+                      <router-link to="/cart"
                         ><i class="fa fa-shopping-cart"></i>Cart({{
                           numInCart.length
                         }})</router-link
@@ -180,17 +183,15 @@
                   <a href="#">Profile<i class="fa fa-angle-down"></i></a>
                   <ul role="menu" class="sub-menu">
                     <li>
-                      <router-link to="/profile" 
-                        >My Account</router-link
-                      >
+                      <router-link to="/profile">My Account</router-link>
                     </li>
                     <li>
-                      <router-link to="/Updateprofile" 
+                      <router-link to="/Updateprofile"
                         >Edit Account</router-link
                       >
                     </li>
                     <li>
-                      <router-link to="/changepassword" 
+                      <router-link to="/changepassword"
                         >Change Password</router-link
                       >
                     </li>
@@ -205,9 +206,7 @@
                       }}</router-link>
                     </li>
                     <li>
-                      <router-link to="/order" 
-                        >My order
-                      </router-link>
+                      <router-link to="/order">My order </router-link>
                     </li>
                   </ul>
                 </li>
@@ -217,11 +216,6 @@
               </ul>
             </div>
           </div>
-          <!-- <div class="col-sm-3">
-            <div class="search_box pull-right">
-              <input type="text" placeholder="Search" />
-            </div>
-          </div> -->
         </div>
       </div>
     </div>
@@ -243,23 +237,21 @@ export default {
   data() {
     return {
       cms: [],
-     conf:undefined,
+      conf: undefined,
       useremail: localStorage.getItem("uid"),
       numInCart: JSON.parse(localStorage.getItem("mycart")),
-
     };
   },
   computed: mapState({
-    //numInCart:(state) => state.inCart,
     msg: (state) => state.opt,
     loginn: (state) => state.islogin,
     user: (state) => state.emailId,
     inCart() {
       return this.$store.getters.inCart;
     },
-   // numInCart() { return this.$state.inCart.length},
   }),
   methods: {
+    /* Method For Logout */
     logout() {
       const token = getToken();
       const url = constant.API_URL + "logout";
@@ -278,6 +270,7 @@ export default {
         localStorage.clear();
       });
     },
+  /* Method For CMS */
     showcms() {
       cms()
         .then((res) => {
@@ -289,7 +282,6 @@ export default {
         });
     },
     show() {
-    //this.$store.dispatch('')
       if ("access_token" in localStorage) {
         store.dispatch({
           type: type.Opt,
@@ -303,10 +295,12 @@ export default {
     this.show();
     this.showcms();
   },
-   created() {
+
+  /* Function For Configration */
+  created() {
     const url = constant.API_URL + "Configration";
     axios.get(url).then((res) => {
-     this.conf=res.data.config;
+      this.conf = res.data.config;
       console.log(this.conf);
     });
   },

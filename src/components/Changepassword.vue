@@ -124,8 +124,6 @@ export default {
       if (this.$v.$invalid) {
         return;
       }
-
-      // alert("SUCCESS!! :-)\n\n" + JSON.stringify(this.user));
    console.log(formData);
         changePassword(formData)
       .then(res=>{
@@ -135,7 +133,7 @@ export default {
                console.log(res.data);
             }
             else{
-              alert("old password does not match")  
+              alert("Old Password does not Match.")  
               console.log(res.data);
             }
         })

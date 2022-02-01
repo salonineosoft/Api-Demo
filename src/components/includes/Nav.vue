@@ -9,12 +9,6 @@
             <div class="col-sm-6">
               <div class="contactinfo">
                 <ul class="nav nav-pills">
-                  <!-- <li>
-                    <a href="#"><i class="fa fa-phone"></i> +9826718906</a>
-                  </li> -->
-                 <!-- <li>
-                   <a href="#"><i class="fa fa-phone"></i>{{conf[0].notification_email}} </a> 
-                </li> -->
                 </ul>
               </div>
             </div>

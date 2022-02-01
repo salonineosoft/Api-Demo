@@ -42,6 +42,7 @@
               </tr>
             </tbody>
           </table>
+          <h1 v-if="EmptyCart==0">Wishlist Is Empty</h1>
         </div>
       </div>
     </section>
@@ -56,15 +57,17 @@ import { deletewishlist } from "@/common/Service";
 export default {
   name: "Wishlist",
   data() {
-    return { carts: undefined, url: constant.UPLOAD_PATH };
+    return { carts: undefined, url: constant.UPLOAD_PATH, EmptyCart:undefined };
   },
   methods: {
+  /* Method for Remove Item From wishlist */
     removeCart(id) {
       deletewishlist(id).then((res) => {
         var del = this.carts.indexOf(id);
         this.carts.splice(del, 1);
         console.log(res.data);
         localStorage.setItem("mycart", JSON.stringify(this.carts));
+        this.EmptyCart = this.carts.length;
       });
     },
   },
@@ -75,7 +78,6 @@ export default {
         this.carts = res.data;
         console.log(res.data);
       })
-
       .catch((error) => {
         console.log("Something went " + error);
       });

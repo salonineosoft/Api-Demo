@@ -5,7 +5,6 @@
 </template>
 
 <script>
-// import image from "../assets/lamp.png"
 export default {
   name: "Paypal",
 
@@ -14,7 +13,7 @@ export default {
       loaded: false,
       paidFor: false,
       product: {
-        price: localStorage.getItem('amount'),
+        price: localStorage.getItem("amount"),
         description: "E-Shopper",
       },
     };
@@ -46,11 +45,8 @@ export default {
           },
           onApprove: async (data, actions) => {
             const order = await actions.order.capture();
-
             this.data;
-
             this.paidFor = true;
-
             console.log(order);
           },
           onError: (err) => {

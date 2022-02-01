@@ -55,7 +55,7 @@
                 <p>Web ID: {{ details.product_id }}</p>
                 <img src="images/product-details/rating.png" alt="" />
                 <span>
-                  <span>&#8377; {{ details.price }}</span>
+                  <span>&#8377; {{ details.sale_price }}</span>
                   <label>Quantity:</label>
                   <input type="text" v-model="details.quantity" />
                   <button
@@ -108,6 +108,7 @@ export default {
     };
   },
   methods: {
+    /* For Adding Item In Cart After Clicking Add To Cart Button in Products Details Page */
     addCartBtn(pro) {
       if (localStorage.getItem("mycart") != undefined) {
         let arr = JSON.parse(localStorage.getItem("mycart"));

@@ -31,6 +31,8 @@ export default {
     };
   },
   mounted() {
+  
+  /*method For Show user Details */
     profile()
       .then((res) => {
         this.first_name = res.data.profile.first_name;

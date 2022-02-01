@@ -36,7 +36,6 @@
             </div>
 
             <div class="form-group">
-              <!-- <label for="email">Email</label> -->
               <input
                 type="email"
                 v-model="user.email"
@@ -55,7 +54,6 @@
               </div>
             </div>
             <div class="form-group">
-              <!-- <label for="contact"> Contact number</label> -->
               <input
                 type="text"
                 class="form-control"
@@ -83,7 +81,6 @@
               </div>
             </div>
             <div class="form-group">
-              <!-- <label for="message"> Message</label> -->
               <textarea
                 v-model="user.message"
                 name="message"
@@ -209,7 +206,6 @@ export default {
       contact(formData)
         .then((res) => {
           if (res) {
-            //alert("Succefully inserted data");
             this.$swal("successfully Commented.", "", "success");
             console.log(res.data);
             window.location.reload();

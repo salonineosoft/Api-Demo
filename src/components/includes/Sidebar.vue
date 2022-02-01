@@ -33,6 +33,7 @@ data(){
 		categories:null,
 	};
   },
+  /* Taking Data to display category */
   mounted(){
 	const url = constant.API_URL+'category';
 	axios.get(url).then((res) => {

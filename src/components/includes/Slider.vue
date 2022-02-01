@@ -19,7 +19,6 @@
                   <h1><span>E</span>-SHOPPER</h1>
                   <h2>{{ banners[0].title }}</h2>
                   <p>{{ banners[0].description }}</p>
-                  <!-- <button type="button" class="btn btn-default get">Get it now</button> -->
                 </div>
                 <div class=" img col-sm-6">
                   <img
@@ -29,7 +28,6 @@
                     width="170px"
                     height="200"
                   />
-                  <!-- <img src="images/home/pricing.png"  class="pricing" alt="" /> -->
                 </div>
               </div>
               <div
@@ -53,7 +51,6 @@
                     width="170px"
                     height="200"
                   />
-                  <!-- <img src="images/home/pricing.png" class="pricing" alt="" /> -->
                 </div>
               </div>
             </div>
